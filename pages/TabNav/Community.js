@@ -1,8 +1,18 @@
 import React, {Component} from 'react';
-import { StyleSheet,View,Image,Text,TouchableOpacity} from 'react-native';
+import CommunityHeader from '../../components/communityHeader';
+import { StyleSheet,View,Image,Text,TouchableOpacity,TextInput} from 'react-native';
+const Dimensions = require('Dimensions');
+const window = Dimensions.get('window');
+
 export default class Community extends Component {
     static navigationOptions = {
-        title: 'Community',
+        header: <CommunityHeader />
+    }
+    constructor(props){
+        super(props);
+        this.state = {
+            text: '',
+        }
     }
     render(){
         return(
@@ -18,5 +28,11 @@ const styles = StyleSheet.create({
       backgroundColor: '#ddd',
       alignItems: 'center',
       justifyContent: 'center'
+    },searchbar : {
+        height: 40,
+        borderColor: 'grey',
+        paddingLeft: 15,
+        borderRadius: 10,
+        backgroundColor: "white"
     }
   })
