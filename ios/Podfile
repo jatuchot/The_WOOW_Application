@@ -8,8 +8,8 @@ target 'AppWooW' do
   # Pods for AppWooW
   pod 'FBSDKLoginKit'
 
-  pod 'react-native-orientation', :path => '../node_modules/react-native-orientation'
+#  pod 'react-native-orientation', :path => '../node_modules/react-native-orientation'
 
-  pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk'
+#  pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk'
 
 end
