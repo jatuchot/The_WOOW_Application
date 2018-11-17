@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
 import {View,StyleSheet,ScrollView,Image,Text,Button,TouchableOpacity,ImageBackground} from 'react-native';
+import firebase from 'react-native-firebase';
 
 export default class Userprofile extends Component {
     static navigationOptions = {
         headerTintColor: 'snow',
         headerStyle: {backgroundColor:'snow',height: 90,fontSize: 26},
         headerLeft: <Text style={{paddingLeft: 15,top: 15,fontSize: 36,fontWeight: 'bold'}}>User Profile</Text>,
-        headerRight: <Button title="Logout" style={{paddingBottom:15,top:-20}}></Button>
+        headerRight: <Button onPress={() => this.Loggedout} title="Logout" style={{paddingBottom:15,top:-20}}></Button>
+    }
+    Loggedout(){
+        console.log("Logout func")
+        firebase.auth().signOut();
     }
     render(){
         return(
@@ -76,6 +81,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF'
     },
     user: {
+        top: 20,
         paddingTop: 20,
         width: 150,
         height: 150,
