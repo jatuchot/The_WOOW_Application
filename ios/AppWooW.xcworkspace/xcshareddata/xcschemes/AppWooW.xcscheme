@@ -14,7 +14,11 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+<<<<<<< HEAD:ios/AppWooW.xcworkspace/xcshareddata/xcschemes/AppWooW.xcscheme
                BlueprintIdentifier = "4DA80F8E90F3C6EEAD9B6E3037D6F084"
+=======
+               BlueprintIdentifier = "AC2B28506B1521992848CEB731CCCE50"
+>>>>>>> 60144dc288dea471bd5ae0a75b260459875bd338:ios/AppWooW.xcodeproj/xcshareddata/xcschemes/AppWooW.xcscheme
                BuildableName = "libPods-AppWooW.a"
                BlueprintName = "Pods-AppWooW"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">

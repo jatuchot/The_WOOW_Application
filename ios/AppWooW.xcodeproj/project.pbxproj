@@ -893,11 +893,18 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+<<<<<<< HEAD
 						ProvisioningStyle = Automatic;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 2RKMBRK782;
+=======
+						DevelopmentTeam = NVRN48AWR3;
+						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+>>>>>>> 60144dc288dea471bd5ae0a75b260459875bd338
 						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -1500,9 +1507,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+<<<<<<< HEAD
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+=======
+				DEVELOPMENT_TEAM = NVRN48AWR3;
+>>>>>>> 60144dc288dea471bd5ae0a75b260459875bd338
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1542,7 +1553,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = "";
+=======
+				DEVELOPMENT_TEAM = NVRN48AWR3;
+>>>>>>> 60144dc288dea471bd5ae0a75b260459875bd338
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
@@ -1575,14 +1590,22 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C2F1899DB1AAD46F1A84D23A /* Pods-AppWooW.debug.xcconfig */;
 			buildSettings = {
+<<<<<<< HEAD
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+=======
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+>>>>>>> 60144dc288dea471bd5ae0a75b260459875bd338
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = 2RKMBRK782;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+=======
+				DEVELOPMENT_TEAM = "";
+>>>>>>> 60144dc288dea471bd5ae0a75b260459875bd338
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
@@ -1600,7 +1623,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.AppWooW;
 				PRODUCT_NAME = AppWooW;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1612,6 +1635,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1177FB8D3DCA6B5A2436440C /* Pods-AppWooW.release.xcconfig */;
 			buildSettings = {
+<<<<<<< HEAD
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -1619,6 +1643,13 @@
 				DEVELOPMENT_TEAM = 2RKMBRK782;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+=======
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+>>>>>>> 60144dc288dea471bd5ae0a75b260459875bd338
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
@@ -1636,7 +1667,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.AppWooW;
 				PRODUCT_NAME = AppWooW;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
