@@ -7,7 +7,9 @@ target 'AppWooW' do
 
   # Pods for AppWooW
   pod 'FBSDKLoginKit'
-
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 #  pod 'react-native-orientation', :path => '../node_modules/react-native-orientation'
 
 #  pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk'
