@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import { StyleSheet,View,Image,Text,TouchableOpacity} from 'react-native';
-import { AccessToken, LoginManager} from 'react-native-fbsdk'; 
-import firebase from 'react-native-firebase';
+
+import { AccessToken, LoginManager, LoginButton} from 'react-native-fbsdk'; 
 import Icon from "react-native-vector-icons/FontAwesome";
-import Confignav from './TabNav/config';
 const styles = StyleSheet.create({
     BGapp:{
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: '#d3f4ff',
+        backgroundColor: '#20A2C2',
     },
     container:{
         flex: 1,
@@ -57,43 +56,20 @@ const styles = StyleSheet.create({
     },
 })
 export default class Login extends Component {
-    constructor(props){
-        super(props);
-        this.check = null
-        this.state={
-            user: null,
-            isAuth: false,
-            accessToken: ''
-        }
-    }
-    /*
-    componentDidMount() {
-        this.check = firebase.auth().onAuthStateChanged((curUser) => {
-            //console.log(`Changed User : ${JSON.stringify(curUser.toJSON())}`);
-            this.setState({
-                user : curUser
-            })
-        })
-    }*/
     loginFacebook = () => {
         LoginManager
-            .logInWithReadPermissions(['public_profile','email','user_status'])
+            .logInWithReadPermissions(['public_profile','email'])
             .then((res)=>{
                 if(res.isCancelled){
                     return Promise.reject(new Error('User canceled'));
                 }
-                console.log(`Login Success with permission: ${res.grantedPermissions.toString()}`);
+                console.log('Login Success with permission: ${res.grantedPermissions.toString()}');
                 return AccessToken.getCurrentAccessToken();
             }).then(data => {
-                let accessToken = data.accessToken
-                //this.setState ={
-                //    accessToken: accessToken
-                //}
-                const credential = firebase.auth.FacebookAuthProvider.credential(accessToken);
-                return firebase.auth().signInWithCredential(credential); 
+                { /* const credential = firebase.auth.FacebookAuthProvider.credential(data.accessToken);
+                return firebase.auth().signInWithCredential(credential); */}
             }).then((user) => {
-                let info = JSON.stringify(user)
-                console.log(`Facebook Login with user : ` + info)
+                console.log('Facebook Login with user : ${JSON.stringfy(user.toJSON())')
             }).catch((err) => {
                 console.log(err);
             });
@@ -108,13 +84,18 @@ export default class Login extends Component {
                             source={require('../assets/img/woow.png')}>
                         </Image>
                     </View>
-                    <View style={{paddingTop: 225}}>
+                    <View style={{top:175}}>
                         <TouchableOpacity
                             onPress={this.loginFacebook}
                             style={styles.facebookButton}
                             underlayColor='#FFFFFF'>
                             <Text style={styles.fbtext}><Icon name="facebook" size={15}/>  Login with Facebook</Text>
-                        </TouchableOpacity>        
+                        </TouchableOpacity>     
+                        <TouchableOpacity
+                            style={styles.twitterButton}
+                            underlayColor='#FFFFFF'>
+                            <Text style={styles.fbtext}><Icon name="twitter" size={15}/>  Login with Twitter</Text>
+                        </TouchableOpacity>     
                     </View>
                 </View> 
 
