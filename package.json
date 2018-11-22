@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "travel-planner",
-=======
   "name": "TravelPlanner",
->>>>>>> d21eedd33beb1f15cd2bd60c0c441d38cc801a1f
   "version": "0.0.1",
   "private": true,
   "scripts": {
