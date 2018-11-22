@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
-import { StyleSheet,View,Image,Text,TouchableOpacity} from 'react-native';
-
-import { AccessToken, LoginManager, LoginButton} from 'react-native-fbsdk'; 
+import { Alert,StyleSheet,View,Image,Text,TouchableOpacity} from 'react-native';
+import { AccessToken, LoginManager,LoginButton} from 'react-native-fbsdk'; 
+import firebase from 'react-native-firebase';
 import Icon from "react-native-vector-icons/FontAwesome";
+import Confignav from './TabNav/config';
 const styles = StyleSheet.create({
     BGapp:{
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: '#20A2C2',
+        backgroundColor: '#d3f4ff',
     },
     container:{
         flex: 1,
@@ -24,7 +25,6 @@ const styles = StyleSheet.create({
         paddingTop:15,
         paddingBottom:15,
         backgroundColor: '#4267B2',
-        color: '#FFFFFF',
         borderRadius: 30,
         borderColor: '#FFFFFF'
     },
@@ -56,24 +56,71 @@ const styles = StyleSheet.create({
     },
 })
 export default class Login extends Component {
+    constructor(props){
+        super(props);
+        this.check = null
+        this.state={
+            user: null,
+            isAuth: false,
+            accessToken: ''
+        }
+    }
+    /*
+    componentDidMount() {
+        this.check = firebase.auth().onAuthStateChanged((curUser) => {
+            //console.log(`Changed User : ${JSON.stringify(curUser.toJSON())}`);
+            this.setState({
+                user : curUser
+            })
+        })
+    }*/
     loginFacebook = () => {
+        LoginManager.logOut()
         LoginManager
             .logInWithReadPermissions(['public_profile','email'])
             .then((res)=>{
                 if(res.isCancelled){
                     return Promise.reject(new Error('User canceled'));
                 }
-                console.log('Login Success with permission: ${res.grantedPermissions.toString()}');
+                console.log(`Login Success with permission: ${res.grantedPermissions.toString()}`);
                 return AccessToken.getCurrentAccessToken();
             }).then(data => {
-                { /* const credential = firebase.auth.FacebookAuthProvider.credential(data.accessToken);
-                return firebase.auth().signInWithCredential(credential); */}
+                //this.setState ={
+                //    accessToken: accessToken
+                //}
+                const credential = firebase.auth.FacebookAuthProvider.credential(data.accessToken);
+                console.log(credential)
+                return firebase.auth().signInWithCredential(credential); 
             }).then((user) => {
-                console.log('Facebook Login with user : ${JSON.stringfy(user.toJSON())')
+                console.log(`Facebook login with user : ${JSON.stringify(user)}`)
             }).catch((err) => {
+                alert(err)
                 console.log(err);
             });
     }
+    /*
+    loginFacebook = () => {
+        Alert.alert(
+            'Alert Title',
+            'My Alert Msg',
+            [
+              {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+              {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+              {text: 'OK', onPress: () => console.log('OK Pressed')},
+            ],
+            { cancelable: false }
+          )
+    }*/
+    /*
+    loginFacebook = () => {
+        firebase.auth().signInAnonymously()
+            .then(() => {
+                console.log('login success')
+            }).catch((err) => {
+                console.log(err)
+                alert(err)
+            })
+    }*/
     render() {
         return (
             <View style={styles.BGapp}>
@@ -84,18 +131,32 @@ export default class Login extends Component {
                             source={require('../assets/img/woow.png')}>
                         </Image>
                     </View>
-                    <View style={{top:175}}>
+                    <View style={{paddingTop: 225}}>
                         <TouchableOpacity
                             onPress={this.loginFacebook}
                             style={styles.facebookButton}
                             underlayColor='#FFFFFF'>
                             <Text style={styles.fbtext}><Icon name="facebook" size={15}/>  Login with Facebook</Text>
-                        </TouchableOpacity>     
-                        <TouchableOpacity
-                            style={styles.twitterButton}
-                            underlayColor='#FFFFFF'>
-                            <Text style={styles.fbtext}><Icon name="twitter" size={15}/>  Login with Twitter</Text>
-                        </TouchableOpacity>     
+                        </TouchableOpacity> 
+                       {/* <LoginButton
+                        style={styles.facebookButton}
+        readPermissions={["public_profile"]}
+        onLoginFinished={(error, result) => {
+          if (error) {
+
+          } else if (result.isCancelled) {
+
+          } else {
+            AccessToken.getCurrentAccessToken()
+              .then((data) => {
+                
+                console.log(data.accessToken)
+              })
+              .catch(error => {
+                console.log(error)
+              })
+          }
+        }} /> */}
                     </View>
                 </View> 
 
