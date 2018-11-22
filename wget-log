@@ -1,0 +1,11 @@
+--2018-11-12 14:41:20--  https://vectr.com/tmp/a6lHUdaGY/a2d7GbQH2o.svg?width=66
+Resolving vectr.com (vectr.com)... 54.225.173.113, 54.225.207.23, 50.19.220.146
+Connecting to vectr.com (vectr.com)|54.225.173.113|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1025 (1.0K) [text/html]
+Saving to: 'a2d7GbQH2o.svg?width=66'
+
+a2d7GbQH2o.svg?widt   0%[                    ]       0  --.-KB/s               a2d7GbQH2o.svg?widt 100%[===================>]   1.00K  --.-KB/s    in 0s      
+
+2018-11-12 14:41:21 (9.87 MB/s) - 'a2d7GbQH2o.svg?width=66' saved [1025/1025]
+
