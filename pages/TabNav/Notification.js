@@ -1,12 +1,24 @@
 import React, {Component} from 'react';
 import {ScrollView,StyleSheet,View,Image,Text,Button,TouchableOpacity} from 'react-native';
+<<<<<<< HEAD
 
 export default class Notification extends Component {
+=======
+import firebase from 'react-native-firebase'
+export default class Notification extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            noti: [],
+        }
+    }
+>>>>>>> All_new_update
     static navigationOptions = {
         headerTintColor: 'snow',
         headerStyle: {backgroundColor:'snow',height: 90,fontSize: 26},
         headerLeft: <Text style={{paddingLeft: 15,top: 15,fontSize: 36,fontWeight: 'bold'}}>Notification</Text>,
     }
+<<<<<<< HEAD
     render(){
         return(
             <ScrollView style={{backgroundColor:'white'}}>
@@ -32,6 +44,49 @@ export default class Notification extends Component {
                         <Text style={styles.contentNoti}>Daily Digest: The top 10 trips that you should try</Text>
                     </View>
                 </View>
+=======
+    componentWillMount() {
+        const notiData = firebase.firestore().collection('announcement')
+        notiData.get().then((data) => {
+            data.forEach((doc) => {
+                console.log(doc.data())
+                this.setState({
+                    noti: doc.data()
+                })
+            })
+        })
+    }
+    render(){
+        var data = Objects.save(this.state.noti).map(function(gg){
+            return{
+                category: gg.Category,
+                detail: gg.Detail
+            }
+        })
+        console.log(data)
+        if(this.state.noti && this.state.noti.length > 0){
+            return(
+                <ScrollView style={{backgroundColor:'white'}}>
+                {this.state.noti.map((data,index)=>{
+                    <View style={styles.container}>
+                        <View style={styles.card}>
+                            <Text style={styles.titleNoti}>{this.state.noti.Category}</Text>
+                            <Text style={styles.contentNoti}>{this.state.noti.Detail}</Text>
+                        </View>
+                    </View>
+                })}
+                </ScrollView>
+            )
+        }
+        return(
+            <ScrollView style={{backgroundColor:'white'}}>
+                {/*<View style={styles.container}>
+                    <View style={styles.card}>
+                        <Text style={styles.titleNoti}>{this.state.noti.Category}</Text>
+                        <Text style={styles.contentNoti}>{this.state.noti.Detail}</Text>
+                    </View>
+                </View> */}
+>>>>>>> All_new_update
             </ScrollView>
         )
     }

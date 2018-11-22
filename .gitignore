@@ -21,7 +21,10 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
+<<<<<<< HEAD
 ios/Pods
+=======
+>>>>>>> All_new_update
 
 # Android/IntelliJ
 #

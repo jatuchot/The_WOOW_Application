@@ -31,7 +31,11 @@ const styles = StyleSheet.create({
         height: 150,
         backgroundColor: 'snow',
         borderBottomWidth: 1,
+<<<<<<< HEAD
         borderColor: '#eee',
+=======
+        borderColor: '#ddd',
+>>>>>>> All_new_update
     },
     headerTitle: {
         fontSize: 36,
@@ -42,6 +46,12 @@ const styles = StyleSheet.create({
     },
     searchSection: {
         flex: 1,
+<<<<<<< HEAD
+=======
+        marginLeft: 15,
+        marginRight: 15,
+        marginBottom: 5,
+>>>>>>> All_new_update
         flexDirection: 'row',
         borderRadius: 30,
         borderWidth: 1,
@@ -51,7 +61,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     searchIcon: {
+<<<<<<< HEAD
         paddingTop: 5,
+=======
+        paddingTop: 2,
+>>>>>>> All_new_update
         paddingLeft: 10,
     },
     input: {
