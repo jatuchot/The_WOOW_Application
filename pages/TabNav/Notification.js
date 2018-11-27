@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import {ScrollView,StyleSheet,View,Image,Text,Button,TouchableOpacity} from 'react-native';
+import {ActivityIndicator,ScrollView,StyleSheet,View,Image,Text,Button,TouchableOpacity} from 'react-native';
 import firebase from 'react-native-firebase'
 export default class Notification extends Component {
     constructor(props){
         super(props);
         this.state = {
             noti: [],
+            isloading: true
         }
     }
     static navigationOptions = {
@@ -16,44 +17,38 @@ export default class Notification extends Component {
     componentWillMount() {
         const notiData = firebase.firestore().collection('announcement')
         notiData.get().then((data) => {
+            const Noti = [];
             data.forEach((doc) => {
-                console.log(doc.data())
-                this.setState({
-                    noti: doc.data()
+                //console.log(doc.id, '=>', doc.data())
+                Noti.push({
+                    Detail: doc.data().Detail,
+                    Category: doc.data().Category
                 })
             })
+            this.setState({
+                isloading: false,
+                noti: Noti
+            })
+            console.log(Noti)
         })
     }
     render(){
-        var data = Objects.save(this.state.noti).map(function(gg){
-            return{
-                category: gg.Category,
-                detail: gg.Detail
-            }
-        })
-        console.log(data)
-        if(this.state.noti && this.state.noti.length > 0){
-            return(
-                <ScrollView style={{backgroundColor:'white'}}>
-                {this.state.noti.map((data,index)=>{
-                    <View style={styles.container}>
-                        <View style={styles.card}>
-                            <Text style={styles.titleNoti}>{this.state.noti.Category}</Text>
-                            <Text style={styles.contentNoti}>{this.state.noti.Detail}</Text>
-                        </View>
+        const loadingDone = (
+            this.state.noti.map(notiData => {
+                return(
+                    <View style={styles.card}>
+                        <Text style={styles.titleNoti}>{notiData.Category}</Text>
+                        <Text style={styles.contentNoti}>{notiData.Detail}</Text>
                     </View>
-                })}
-                </ScrollView>
-            )
-        }
+                )
+            }) 
+        )
+        const loadingContent = <ActivityIndicator size="large" style={{paddingTop: 250}} />
         return(
             <ScrollView style={{backgroundColor:'white'}}>
-                {/*<View style={styles.container}>
-                    <View style={styles.card}>
-                        <Text style={styles.titleNoti}>{this.state.noti.Category}</Text>
-                        <Text style={styles.contentNoti}>{this.state.noti.Detail}</Text>
-                    </View>
-                </View> */}
+                <View style={styles.container}>
+                    {this.state.isloading ? loadingContent : loadingDone }
+                </View>
             </ScrollView>
         )
     }

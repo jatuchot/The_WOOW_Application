@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>350058824351-akv3rshq4bjmkbb9hlmad4onjqbve9j3.apps.googleusercontent.com</string>
+	<string>350058824351-578l1hd5bfkf9fn0iqlmillrosq5b43t.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.350058824351-akv3rshq4bjmkbb9hlmad4onjqbve9j3</string>
+	<string>com.googleusercontent.apps.350058824351-578l1hd5bfkf9fn0iqlmillrosq5b43t</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDQDq274RG9BR6_ReSlFL3R9-X_fT8dkqc</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>org.reactjs.native.example.TravelPlanner</string>
+	<string>org.reactjs.native.example.TravelPlanner2</string>
 	<key>PROJECT_ID</key>
 	<string>travel-planner-790f3</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:350058824351:ios:ea68e5bb8139dbec</string>
+	<string>1:350058824351:ios:548c3eac3c1df8a6</string>
 	<key>DATABASE_URL</key>
 	<string>https://travel-planner-790f3.firebaseio.com</string>
 </dict>

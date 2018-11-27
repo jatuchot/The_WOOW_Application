@@ -11,7 +11,7 @@ target 'TravelPlanner' do
   pod 'FBSDKShareKit'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
-  pod 'Firebase/Firestore'
+  pod 'Firebase/Firestore', '5.7.0'
 
  # pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 

@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import CommunityHeader from '../../components/communityHeader';
 import { StyleSheet,View,ImageBackground,Text,TouchableOpacity,ScrollView} from 'react-native';
-const Dimensions = require('Dimensions');
-const window = Dimensions.get('window');
 
 export default class Community extends Component {
     static navigationOptions = {

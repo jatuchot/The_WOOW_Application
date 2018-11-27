@@ -5,6 +5,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import UserScreen from './Userprofile';
 import CommunityScreen from './Community';
 import NotiScreen from './Notification';
+import CreateScreen from './Create/createplan';
 import { createStackNavigator,createBottomTabNavigator } from 'react-navigation';
 
 export default class config extends Component {
@@ -27,9 +28,8 @@ const Notify = createStackNavigator({
   })
   
   const User = createStackNavigator({
-    User: {
-      screen: UserScreen,
-    }
+      UserScreen,
+      CreateScreen
   })
   const MainNav = createBottomTabNavigator({
     Community: {

@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {NavigatorIOS,View,StyleSheet,ScrollView,Image,Text,Button,TouchableOpacity,ImageBackground} from 'react-native';
 import firebase from 'react-native-firebase';
-import CreateScreen from '../create/createplan'
-import {createStackNavigator} from 'react-navigation';
 
 export default class Userprofile extends Component {
     constructor(props){
@@ -16,14 +14,17 @@ export default class Userprofile extends Component {
     }
     static navigationOptions = {
         headerTintColor: 'snow',
-        headerStyle: {backgroundColor:'snow',height: 90,fontSize: 26},
+        headerStyle: {backgroundColor:'snow',height: 90},
         headerLeft: <Text style={{paddingLeft: 15,top: 15,fontSize: 36,fontWeight: 'bold'}}>User Profile</Text>,
-        headerRight: <Button onPress={() => 
+        headerRight: (<View>
+            <Button onPress={() => 
             firebase.auth().signOut()
                 .then(() => {
                     alert("Success :: Sign Out ")
             })
         } title="Logout" style={{paddingBottom:15,top:-20}}></Button>
+        <Text style={{fontSize: 36,fontWeight: 'bold'}}> </Text>
+        </View>),
     }
     componentDidMount() {
         this.check = firebase.auth().onAuthStateChanged((curUser) => {
@@ -48,7 +49,6 @@ export default class Userprofile extends Component {
         })
     }
     render(){
-        const {navigate} = this.props.navigation;
         return(
             <ScrollView>
                 <View style={styles.container}>
@@ -62,6 +62,7 @@ export default class Userprofile extends Component {
                     </View>
                     <View style={{paddingTop: 50,paddingBottom:20}}>
                         <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate("CreateScreen")}
                             style={styles.createBtn}
                             underlayColor='#FFFFFF'>
                             <Text style={styles.fbtext}> Create new travel plan</Text>
