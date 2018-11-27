@@ -11,10 +11,10 @@ export default class Createplan extends Component{
         </View>),
         headerRight: <View>
             <Button onPress={() => 
-            firebase.auth().signOut()
-                .then(() => {
-                    alert("Success :: Sign Out ")
-            })
+            //firebase.auth().signOut()
+            //    .then(() => {
+            //        alert("Success :: Sign Out ")
+            alert("Nothing here")
         } title="Done" style={{paddingBottom:15}}></Button>
         <Text style={{fontSize: 36,fontWeight: 'bold'}}> </Text>
         </View>
