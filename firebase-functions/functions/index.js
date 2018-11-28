@@ -55,7 +55,7 @@ const validatePlanData = (planData) => {
     throw new functions.https.HttpsError('invalid-argument', 'created date or modified date have incorrect format');
   }
 
-  const urlRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+  const urlRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)?/gi;
   const regex = new RegExp(urlRegex);
   if(planData.shareUrl !== null) {
     if(!planData.shareUrl.match(regex)) {
