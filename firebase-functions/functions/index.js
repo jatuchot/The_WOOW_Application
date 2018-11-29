@@ -113,12 +113,30 @@ exports.manageTravelPlan = functions.https.onCall((data, context) => {
     case 'create':
       return createTravelPlan(data.planData, context.auth);
     case 'edit':
-      return editTravelPlan(data.planData);
+      return Promise.resolve(null);
     case 'delete':
-      return deleteTravelPlan(data.planData);
+      return Promise.resolve(null);
     default:
       throw new functions.https.HttpsError('failed-precondition', 'Invalid data operation.');
   }
 });
 
+exports.makePublic = functions.https.onCall((data, context) => {
+  context.auth = { uid: 'R4dazMUsGORi2kWtL4efHTov9CC2'};
+  validateSession(context.auth);
+  const plansCollection = db.collection('plans');
+  const plan = plansCollection.doc(data.id).get();
+  return plan.then((doc) => {
+    console.log(doc.data().author.id);
+    if(doc.data().author.id === context.auth.uid) {
+      return plansCollection.doc(data.id).update({
+        "shareUrl": data.id,
+        "isPublic": true
+      })
+    }
+    return Promise.reject(new functions.https.HttpsError('permission-denied', 'Are you trying to edit other person\'s data?'));
+  }).then(() => {
+    return data.id;
+  });
+});
 
